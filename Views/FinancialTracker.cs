@@ -1,8 +1,8 @@
 namespace FinTrack
 {
-    public partial class Form1 : Form
+    public partial class FinancialTracker : Form
     {
-        public Form1()
+        public FinancialTracker()
         {
             InitializeComponent();
         }
