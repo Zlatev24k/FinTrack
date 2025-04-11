@@ -33,7 +33,13 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             tabPage4 = new TabPage();
+            listBox1 = new ListBox();
+            label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            textBox1 = new TextBox();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -51,6 +57,11 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(label1);
+            tabPage1.Controls.Add(listBox1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -89,6 +100,52 @@
             tabPage4.Text = "Delete Expense";
             tabPage4.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(6, 54);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(254, 344);
+            listBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(6, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(199, 35);
+            label1.TabIndex = 1;
+            label1.Text = "Type of Expense:";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(558, 54);
+            button1.Name = "button1";
+            button1.Size = new Size(226, 77);
+            button1.TabIndex = 2;
+            button1.Text = "Add Type of Expense";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F);
+            button2.Location = new Point(558, 318);
+            button2.Name = "button2";
+            button2.Size = new Size(226, 80);
+            button2.TabIndex = 3;
+            button2.Text = "Add Expense to Balance";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F);
+            textBox1.Location = new Point(282, 70);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(258, 34);
+            textBox1.TabIndex = 4;
+            // 
             // Expenses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -98,6 +155,8 @@
             Name = "Expenses";
             Text = "Expenses";
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -108,5 +167,10 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private TabPage tabPage4;
+        private Label label1;
+        private ListBox listBox1;
+        private TextBox textBox1;
+        private Button button2;
+        private Button button1;
     }
 }
