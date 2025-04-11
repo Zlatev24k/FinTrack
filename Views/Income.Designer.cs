@@ -38,8 +38,11 @@
             button1 = new Button();
             button2 = new Button();
             textBox1 = new TextBox();
+            listBox2 = new ListBox();
+            label2 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -72,6 +75,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label2);
+            tabPage2.Controls.Add(listBox2);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -146,6 +151,24 @@
             textBox1.Size = new Size(257, 34);
             textBox1.TabIndex = 4;
             // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.Location = new Point(226, 87);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(328, 324);
+            listBox2.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 17F);
+            label2.Location = new Point(294, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(193, 40);
+            label2.TabIndex = 1;
+            label2.Text = "Your Incomes:";
+            // 
             // Income
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -157,6 +180,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -172,5 +197,7 @@
         private TextBox textBox1;
         private Button button2;
         private Button button1;
+        private Label label2;
+        private ListBox listBox2;
     }
 }
