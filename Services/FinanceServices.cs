@@ -8,6 +8,6 @@ namespace FinTrack.Services
 {
     public class FinanceServices
     {
-
+         
     }
 }
