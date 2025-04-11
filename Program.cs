@@ -1,3 +1,4 @@
+using FinTrack.Views;
 namespace FinTrack
 {
     internal static class Program
