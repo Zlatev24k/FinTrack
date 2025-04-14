@@ -48,6 +48,7 @@ partial class FinancialTracker
         // 
         // textBox1
         // 
+        textBox1.Enabled = false;
         textBox1.Location = new Point(294, 185);
         textBox1.Name = "textBox1";
         textBox1.Size = new Size(186, 27);
