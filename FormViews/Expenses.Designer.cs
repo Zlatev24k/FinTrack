@@ -48,10 +48,14 @@
             textBox3 = new TextBox();
             label6 = new Label();
             button3 = new Button();
+            label7 = new Label();
+            listBox4 = new ListBox();
+            button4 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -179,6 +183,9 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(button4);
+            tabPage4.Controls.Add(listBox4);
+            tabPage4.Controls.Add(label7);
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
@@ -262,6 +269,34 @@
             button3.Text = "Update Amount";
             button3.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F);
+            label7.Location = new Point(8, 47);
+            label7.Name = "label7";
+            label7.Size = new Size(178, 35);
+            label7.TabIndex = 2;
+            label7.Text = "Your Expenses:";
+            // 
+            // listBox4
+            // 
+            listBox4.FormattingEnabled = true;
+            listBox4.Location = new Point(8, 85);
+            listBox4.Name = "listBox4";
+            listBox4.Size = new Size(233, 324);
+            listBox4.TabIndex = 3;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 12F);
+            button4.Location = new Point(264, 85);
+            button4.Name = "button4";
+            button4.Size = new Size(197, 60);
+            button4.TabIndex = 5;
+            button4.Text = "Delete Amount";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // Expenses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -277,6 +312,8 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -302,5 +339,8 @@
         private Label label6;
         private TextBox textBox3;
         private Button button3;
+        private Button button4;
+        private ListBox listBox4;
+        private Label label7;
     }
 }
