@@ -49,10 +49,14 @@
             label5 = new Label();
             listBox3 = new ListBox();
             tabPage4 = new TabPage();
+            button6 = new Button();
+            listBox5 = new ListBox();
+            label8 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -263,6 +267,9 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label8);
+            tabPage4.Controls.Add(listBox5);
+            tabPage4.Controls.Add(button6);
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
@@ -270,6 +277,34 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Delete Income";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 12F);
+            button6.Location = new Point(284, 66);
+            button6.Name = "button6";
+            button6.Size = new Size(197, 60);
+            button6.TabIndex = 6;
+            button6.Text = "Delete Income";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // listBox5
+            // 
+            listBox5.FormattingEnabled = true;
+            listBox5.Location = new Point(24, 66);
+            listBox5.Name = "listBox5";
+            listBox5.Size = new Size(254, 324);
+            listBox5.TabIndex = 7;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15F);
+            label8.Location = new Point(24, 28);
+            label8.Name = "label8";
+            label8.Size = new Size(171, 35);
+            label8.TabIndex = 8;
+            label8.Text = "Your Incomes:";
             // 
             // Income
             // 
@@ -286,6 +321,8 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -312,5 +349,11 @@
         private Button button3;
         private Label label6;
         private TextBox textBox3;
+        private ListBox listBox4;
+        private Button button5;
+        private Label label7;
+        private Label label8;
+        private ListBox listBox5;
+        private Button button6;
     }
 }
