@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FinTrack.Views
 {
-    public partial class Expenses: Form
+    public partial class Expenses : Form
     {
         public Expenses()
         {
             InitializeComponent();
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
