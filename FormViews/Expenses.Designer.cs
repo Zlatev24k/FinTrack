@@ -294,7 +294,7 @@
             button4.Name = "button4";
             button4.Size = new Size(197, 60);
             button4.TabIndex = 5;
-            button4.Text = "Delete Amount";
+            button4.Text = "Delete Expense";
             button4.UseVisualStyleBackColor = true;
             // 
             // Expenses
