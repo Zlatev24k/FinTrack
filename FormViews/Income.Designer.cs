@@ -49,9 +49,7 @@
             label5 = new Label();
             listBox3 = new ListBox();
             tabPage4 = new TabPage();
-            listBox4 = new ListBox();
-            label7 = new Label();
-            button5 = new Button();
+
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -267,9 +265,7 @@
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(button5);
-            tabPage4.Controls.Add(label7);
-            tabPage4.Controls.Add(listBox4);
+
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
@@ -277,6 +273,7 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Delete Income";
             tabPage4.UseVisualStyleBackColor = true;
+
             // 
             // listBox4
             // 
@@ -305,6 +302,8 @@
             button5.TabIndex = 6;
             button5.Text = "Delete Income";
             button5.UseVisualStyleBackColor = true;
+=======
+>>>>>>> d65a7cd6b051e0c27edb64e75bafc154c5e5c511
             // 
             // Income
             // 
