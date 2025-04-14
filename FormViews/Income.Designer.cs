@@ -49,12 +49,10 @@
             label5 = new Label();
             listBox3 = new ListBox();
             tabPage4 = new TabPage();
-
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
-            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -265,7 +263,6 @@
             // 
             // tabPage4
             // 
-
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
@@ -273,37 +270,6 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Delete Income";
             tabPage4.UseVisualStyleBackColor = true;
-
-            // 
-            // listBox4
-            // 
-            listBox4.FormattingEnabled = true;
-            listBox4.Location = new Point(23, 57);
-            listBox4.Name = "listBox4";
-            listBox4.Size = new Size(254, 324);
-            listBox4.TabIndex = 1;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 15F);
-            label7.Location = new Point(23, 19);
-            label7.Name = "label7";
-            label7.Size = new Size(171, 35);
-            label7.TabIndex = 2;
-            label7.Text = "Your Incomes:";
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(369, 168);
-            button5.Name = "button5";
-            button5.Size = new Size(197, 67);
-            button5.TabIndex = 6;
-            button5.Text = "Delete Income";
-            button5.UseVisualStyleBackColor = true;
-=======
->>>>>>> d65a7cd6b051e0c27edb64e75bafc154c5e5c511
             // 
             // Income
             // 
@@ -320,8 +286,6 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -348,8 +312,5 @@
         private Button button3;
         private Label label6;
         private TextBox textBox3;
-        private ListBox listBox4;
-        private Button button5;
-        private Label label7;
     }
 }
