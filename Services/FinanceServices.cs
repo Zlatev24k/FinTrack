@@ -10,20 +10,16 @@ namespace FinTrack.Services
     public class FinanceServices
     {
 
-        public List<string> LoadIncomes()
+        public List<Income> LoadIncomesFromDB()
         {
-            List<string> incomesStr = new List<string>();
             using (var context = new BudgetContext())
             {
                 List<Income> incomes = context.Incomes.ToList();
-               
-                foreach (var item in incomes)
-                {
-                    string income = $"";
-                }
+
+                return incomes;
             }
-            return incomesStr;
+
         }
-        
+
     }
 }

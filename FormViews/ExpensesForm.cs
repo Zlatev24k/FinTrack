@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FinTrack.Services;
 
 namespace FinTrack.Views
 {
-    public partial class Income: Form
+    public partial class ExpensesForm : Form
     {
-        FinanceServices financeServices;
-        public Income()
+        public ExpensesForm()
         {
-            financeServices = new FinanceServices();
             InitializeComponent();
-            
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
