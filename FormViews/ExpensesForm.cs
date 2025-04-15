@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinTrack.Models;
+using FinTrack.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,21 @@ namespace FinTrack.Views
 {
     public partial class ExpensesForm : Form
     {
+        FinanceServices financeServices;
         public ExpensesForm()
         {
+            financeServices = new FinanceServices();
             InitializeComponent();
+            LoadExpense();
+        }
+        private void LoadExpense()
+        {
+            List<Expense> expenseList = financeServices.LoadExpensesFromDB();
+            foreach (var item in expenseList)
+            {
+                string expense = $"{item.Amount} - {item.Description}";
+                listBox2.Items.Add(expense);
+            }
         }
 
         private void tabPage3_Click(object sender, EventArgs e)

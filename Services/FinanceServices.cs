@@ -20,6 +20,15 @@ namespace FinTrack.Services
             }
 
         }
+        public List<Expense> LoadExpensesFromDB()
+        {
+            using (var context = new BudgetContext())
+            {
+                List<Expense> expenses = context.Expenses.ToList();
 
+                return expenses;
+            }
+
+        }
     }
 }
