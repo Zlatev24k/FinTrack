@@ -28,6 +28,8 @@ namespace FinTrack.Views
             {
                 string expense = $"{item.Amount} - {item.TypeOfExpense.Name}";
                 listBox2.Items.Add(expense);
+                listBox3.Items.Add(expense);
+                listBox4.Items.Add(expense);
             }
         }
 
