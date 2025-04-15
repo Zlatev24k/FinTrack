@@ -26,7 +26,7 @@ namespace FinTrack.Views
             List<Expense> expenseList = financeServices.LoadExpensesFromDB();
             foreach (var item in expenseList)
             {
-                string expense = $"{item.Amount} - {item.Description}";
+                string expense = $"{item.Amount} - {item.TypeOfExpense.Name}";
                 listBox2.Items.Add(expense);
             }
         }

@@ -26,7 +26,7 @@ namespace FinTrack.Views
             List<Income> incomeList = financeServices.LoadIncomesFromDB();
             foreach (var item in incomeList)
             {
-                string income = $"{item.Amount} - {item.Description}";
+                string income = $"{item.Amount} - {item.TypeOfIncome.Name}";
                 listBox2.Items.Add(income);
             }
         }

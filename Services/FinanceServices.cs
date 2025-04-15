@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinTrack.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinTrack.Services
 {
@@ -14,7 +15,9 @@ namespace FinTrack.Services
         {
             using (var context = new BudgetContext())
             {
-                List<Income> incomes = context.Incomes.ToList();
+                List<Income> incomes = context.Incomes
+                    .Include(i => i.TypeOfIncome)
+                    .ToList();
 
                 return incomes;
             }
@@ -24,7 +27,9 @@ namespace FinTrack.Services
         {
             using (var context = new BudgetContext())
             {
-                List<Expense> expenses = context.Expenses.ToList();
+                List<Expense> expenses = context.Expenses
+                    .Include(i => i.TypeOfExpense)
+                    .ToList();
 
                 return expenses;
             }
