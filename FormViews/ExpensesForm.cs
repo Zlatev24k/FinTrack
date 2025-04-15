@@ -20,6 +20,7 @@ namespace FinTrack.Views
             financeServices = new FinanceServices();
             InitializeComponent();
             LoadExpense();
+            LoadTypeOfExpenses();
         }
         private void LoadExpense()
         {
@@ -30,6 +31,16 @@ namespace FinTrack.Views
                 listBox2.Items.Add(expense);
                 listBox3.Items.Add(expense);
                 listBox4.Items.Add(expense);
+            }
+        }
+
+        private void LoadTypeOfExpenses()
+        {
+            List<TypeOfExpense> typeOfExpensesList = financeServices.LoadTypeOfExpensesFromDB();
+            foreach (var item in typeOfExpensesList)
+            {
+                string typeOfExpense = $"{item.Name}";
+                listBox1.Items.Add(typeOfExpense);
             }
         }
 

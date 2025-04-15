@@ -21,8 +21,8 @@ namespace FinTrack.Services
 
                 return incomes;
             }
-
         }
+
         public List<Expense> LoadExpensesFromDB()
         {
             using (var context = new BudgetContext())
@@ -33,7 +33,26 @@ namespace FinTrack.Services
 
                 return expenses;
             }
+        }
 
+        public List<TypeOfExpense> LoadTypeOfExpensesFromDB()
+        {
+            using (var context = new BudgetContext())
+            {
+                List<TypeOfExpense> typeOfExpenses = context.TypeOfExpenses.ToList();
+
+                return typeOfExpenses;
+            }
+        }
+
+        public List<TypeOfIncome> LoadTypeOfIncomesFromDB()
+        {
+            using (var context = new BudgetContext())
+            {
+                List<TypeOfIncome> typeOfIncomes = context.TypeOfIncomes.ToList();
+
+                return typeOfIncomes;
+            }
         }
     }
 }

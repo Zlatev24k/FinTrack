@@ -20,6 +20,7 @@ namespace FinTrack.Views
             financeServices = new FinanceServices();
             InitializeComponent();
             LoadIncome();
+            LoadTypeOfIncomes();
         }
         private void LoadIncome()
         {
@@ -32,6 +33,16 @@ namespace FinTrack.Views
                 listBox5.Items.Add(income);
             }
         }
-        
+
+        private void LoadTypeOfIncomes()
+        {
+            List<TypeOfIncome> typeOfIncomesList = financeServices.LoadTypeOfIncomesFromDB();
+            foreach (var item in typeOfIncomesList)
+            {
+                string typeOfIncome = $"{item.Name}";
+                listBox1.Items.Add(typeOfIncome);
+            }
+        }
+
     }
 }
