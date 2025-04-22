@@ -56,5 +56,31 @@ namespace FinTrack.Views
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfIncome selectedTypeOfIncome = context.TypeOfIncomes.FirstOrDefault(ti => ti.Name == listBox1.SelectedItem.ToString());
+                decimal amount = decimal.Parse(textBox2.Text);
+                Income newIncome = new Income() { Amount = amount, TypeOfIncomeId = selectedTypeOfIncome.Id };
+                context.Incomes.Add(newIncome);
+                context.SaveChanges();
+
+                Balance lastBalance = context.Balances.OrderBy(b=>b.Id).Last();
+                
+                decimal balanceAmount = lastBalance.Amount + newIncome.Amount;
+                Balance balance = new Balance() { Amount=balanceAmount,IncomeId = newIncome.Id };
+                context.Balances.Add(balance);
+                context.SaveChanges();
+                LoadIncome();
+
+            }
+
+        }
+        /*private decimal GetBalanceAmount()
+        {
+
+        }*/
     }
 }
