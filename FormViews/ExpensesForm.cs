@@ -48,5 +48,17 @@ namespace FinTrack.Views
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string newExpenseType = textBox1.Text;
+            listBox1.Items.Add(newExpenseType);
+            using (var context = new BudgetContext())
+            {
+                TypeOfExpense newTypeOfExpense = new TypeOfExpense() { Name = newExpenseType };
+                context.TypeOfExpenses.Add(newTypeOfExpense);
+                context.SaveChanges();
+            }
+        }
     }
 }

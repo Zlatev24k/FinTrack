@@ -12,7 +12,7 @@ using FinTrack.Services;
 
 namespace FinTrack.Views
 {
-    public partial class IncomeForm: Form
+    public partial class IncomeForm : Form
     {
         FinanceServices financeServices;
         public IncomeForm()
@@ -44,5 +44,17 @@ namespace FinTrack.Views
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string newIncomeType = textBox1.Text;
+            listBox1.Items.Add(newIncomeType);
+            using (var context = new BudgetContext())
+            {
+                TypeOfIncome newTypeOfIncome = new TypeOfIncome() { Name = newIncomeType };
+                context.TypeOfIncomes.Add(newTypeOfIncome);
+                context.SaveChanges();
+            }
+
+        }
     }
 }
