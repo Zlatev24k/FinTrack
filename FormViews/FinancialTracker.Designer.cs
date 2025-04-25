@@ -109,6 +109,7 @@ partial class FinancialTracker
         Controls.Add(label1);
         Name = "FinancialTracker";
         Text = "Financial Tracker";
+        Load += FinancialTracker_Load;
         ResumeLayout(false);
         PerformLayout();
     }

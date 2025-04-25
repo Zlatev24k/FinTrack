@@ -54,5 +54,15 @@ namespace FinTrack.Services
                 return typeOfIncomes;
             }
         }
+
+        public decimal GetBalanceAmount()
+        {
+            using (var context = new BudgetContext())
+            {
+                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                return lastBalance.Amount;
+            }
+        }
+
     }
 }

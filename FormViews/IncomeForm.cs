@@ -15,6 +15,7 @@ namespace FinTrack.Views
     public partial class IncomeForm : Form
     {
         FinanceServices financeServices;
+        public decimal balanceAmount;
         public IncomeForm()
         {
             financeServices = new FinanceServices();
@@ -25,9 +26,13 @@ namespace FinTrack.Views
         private void LoadIncome()
         {
             List<Income> incomeList = financeServices.LoadIncomesFromDB();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox5.Items.Clear();
             foreach (var item in incomeList)
             {
                 string income = $"{item.Amount} - {item.TypeOfIncome.Name}";
+
                 listBox2.Items.Add(income);
                 listBox3.Items.Add(income);
                 listBox5.Items.Add(income);
@@ -67,20 +72,16 @@ namespace FinTrack.Views
                 context.Incomes.Add(newIncome);
                 context.SaveChanges();
 
-                Balance lastBalance = context.Balances.OrderBy(b=>b.Id).Last();
                 
-                decimal balanceAmount = lastBalance.Amount + newIncome.Amount;
+                decimal balanceAmount = financeServices.GetBalanceAmount() + newIncome.Amount;
                 Balance balance = new Balance() { Amount=balanceAmount,IncomeId = newIncome.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
+                balanceAmount = financeServices.GetBalanceAmount();
+                this.DialogResult = DialogResult.OK;
                 LoadIncome();
-
+                //!//
             }
-
         }
-        /*private decimal GetBalanceAmount()
-        {
-
-        }*/
     }
 }
