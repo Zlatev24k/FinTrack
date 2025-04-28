@@ -23,8 +23,13 @@ public partial class FinancialTracker : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        var expensesForm = new ExpensesForm();
-        expensesForm.ShowDialog();
+        var expenseForm = new ExpensesForm();
+        if (expenseForm.ShowDialog() == DialogResult.OK)
+        {
+            textBox1.Text = expenseForm.balanceAmount.ToString();
+        }
+        //var expensesForm = new ExpensesForm();
+        //expensesForm.ShowDialog();
     }
 
     private void FinancialTracker_Load(object sender, EventArgs e)

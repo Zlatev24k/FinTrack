@@ -49,10 +49,12 @@ partial class FinancialTracker
         // textBox1
         // 
         textBox1.Enabled = false;
+        textBox1.Font = new Font("Segoe UI", 11F);
         textBox1.Location = new Point(294, 185);
         textBox1.Name = "textBox1";
-        textBox1.Size = new Size(186, 27);
+        textBox1.Size = new Size(186, 32);
         textBox1.TabIndex = 1;
+        textBox1.TextAlign = HorizontalAlignment.Center;
         // 
         // button1
         // 

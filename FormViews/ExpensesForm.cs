@@ -15,6 +15,7 @@ namespace FinTrack.Views
     public partial class ExpensesForm : Form
     {
         FinanceServices financeServices;
+        public decimal balanceAmount;
         public ExpensesForm()
         {
             financeServices = new FinanceServices();
@@ -25,6 +26,9 @@ namespace FinTrack.Views
         private void LoadExpense()
         {
             List<Expense> expenseList = financeServices.LoadExpensesFromDB();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox4.Items.Clear();
             foreach (var item in expenseList)
             {
                 string expense = $"{item.Amount} - {item.TypeOfExpense.Name}";
@@ -58,6 +62,27 @@ namespace FinTrack.Views
                 TypeOfExpense newTypeOfExpense = new TypeOfExpense() { Name = newExpenseType };
                 context.TypeOfExpenses.Add(newTypeOfExpense);
                 context.SaveChanges();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfExpense selectedTypeOfExpense = context.TypeOfExpenses.FirstOrDefault(te => te.Name == listBox1.SelectedItem.ToString());
+                decimal amount = decimal.Parse(textBox2.Text);
+                Expense newExpense = new Expense() { Amount = amount, TypeOfExpenseId = selectedTypeOfExpense.Id };
+                context.Expenses.Add(newExpense);
+                context.SaveChanges();
+
+
+                balanceAmount = financeServices.GetBalanceAmount() - newExpense.Amount;
+                Balance balance = new Balance() { Amount = balanceAmount, ExpenseId = newExpense.Id };
+                context.Balances.Add(balance);
+                context.SaveChanges();
+                //balanceAmount = financeServices.GetBalanceAmount();
+                this.DialogResult = DialogResult.OK;
+                LoadExpense();
             }
         }
     }
