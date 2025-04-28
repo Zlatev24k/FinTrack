@@ -73,14 +73,13 @@ namespace FinTrack.Views
                 context.SaveChanges();
 
                 
-                decimal balanceAmount = financeServices.GetBalanceAmount() + newIncome.Amount;
+                balanceAmount = financeServices.GetBalanceAmount() + newIncome.Amount;
                 Balance balance = new Balance() { Amount=balanceAmount,IncomeId = newIncome.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
-                balanceAmount = financeServices.GetBalanceAmount();
+                //balanceAmount = financeServices.GetBalanceAmount();
                 this.DialogResult = DialogResult.OK;
                 LoadIncome();
-                //!//
             }
         }
     }
