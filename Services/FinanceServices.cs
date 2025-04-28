@@ -63,6 +63,17 @@ namespace FinTrack.Services
                 return lastBalance.Amount;
             }
         }
+        public void UpdateLastIncome(decimal newIncomeAmount)
+        {
+            using (var context = new BudgetContext())
+            {
+                Income lastIncome = context.Incomes.OrderBy(i => i.Id).Last();
+                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                lastBalance.Amount = lastBalance.Amount - lastIncome.Amount + newIncomeAmount;
+                lastIncome.Amount = newIncomeAmount;
+                context.SaveChanges();
+            }
+        }
 
     }
 }

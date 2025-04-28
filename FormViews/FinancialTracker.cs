@@ -16,6 +16,7 @@ public partial class FinancialTracker : Form
         if (incomeForm.ShowDialog() == DialogResult.OK)
         {
             textBox1.Text = incomeForm.balanceAmount.ToString();
+
         }
         //!//
         

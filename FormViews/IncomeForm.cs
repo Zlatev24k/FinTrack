@@ -72,15 +72,24 @@ namespace FinTrack.Views
                 context.Incomes.Add(newIncome);
                 context.SaveChanges();
 
-                
+
                 balanceAmount = financeServices.GetBalanceAmount() + newIncome.Amount;
-                Balance balance = new Balance() { Amount=balanceAmount,IncomeId = newIncome.Id };
+                Balance balance = new Balance() { Amount = balanceAmount, IncomeId = newIncome.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
                 //balanceAmount = financeServices.GetBalanceAmount();
                 this.DialogResult = DialogResult.OK;
                 LoadIncome();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            decimal newAmount = decimal.Parse(textBox3.Text);
+            financeServices.UpdateLastIncome(newAmount);
+            this.DialogResult = DialogResult.OK;
+            balanceAmount = financeServices.GetBalanceAmount();
+            LoadIncome();
         }
     }
 }
