@@ -18,7 +18,7 @@ public partial class FinancialTracker : Form
             textBox1.Text = incomeForm.balanceAmount.ToString();
         }
         //!//
-        //77
+        
     }
 
     private void button2_Click(object sender, EventArgs e)
