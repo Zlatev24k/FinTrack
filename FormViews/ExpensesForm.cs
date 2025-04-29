@@ -85,5 +85,14 @@ namespace FinTrack.Views
                 LoadExpense();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            decimal newAmount = decimal.Parse(textBox3.Text);
+            financeServices.UpdateLastExpense(newAmount);
+            this.DialogResult = DialogResult.OK;
+            balanceAmount = financeServices.GetBalanceAmount();
+            LoadExpense();
+        }
     }
 }

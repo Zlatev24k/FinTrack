@@ -220,6 +220,7 @@
             button3.TabIndex = 4;
             button3.Text = "Update Amount";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label6
             // 

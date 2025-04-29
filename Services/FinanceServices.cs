@@ -74,6 +74,16 @@ namespace FinTrack.Services
                 context.SaveChanges();
             }
         }
-
+        public void UpdateLastExpense(decimal newExpenseAmount)
+        {
+            using (var context = new BudgetContext())
+            {
+                Expense lastExpense = context.Expenses.OrderBy(e => e.Id).Last();
+                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                lastBalance.Amount = lastBalance.Amount + lastExpense.Amount - newExpenseAmount;
+                lastExpense.Amount = newExpenseAmount;
+                context.SaveChanges();
+            }
+        }
     }
 }
