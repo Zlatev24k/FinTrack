@@ -97,5 +97,16 @@ namespace FinTrack.Services
                 context.SaveChanges();
             }
         }
+        public void DeleteLastExpense()
+        {
+            using (var context = new BudgetContext())
+            {
+                Expense lastExpense = context.Expenses.OrderBy(e => e.Id).Last();
+                context.Expenses.Remove(lastExpense);
+                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                lastBalance.Amount = lastBalance.Amount + lastExpense.Amount;
+                context.SaveChanges();
+            }
+        }
     }
 }

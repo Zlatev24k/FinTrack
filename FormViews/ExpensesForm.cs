@@ -94,5 +94,13 @@ namespace FinTrack.Views
             balanceAmount = financeServices.GetBalanceAmount();
             LoadExpense();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            financeServices.DeleteLastExpense();
+            this.DialogResult = DialogResult.OK;
+            balanceAmount = financeServices.GetBalanceAmount();
+            LoadExpense();
+        }
     }
 }
