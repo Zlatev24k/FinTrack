@@ -85,5 +85,17 @@ namespace FinTrack.Services
                 context.SaveChanges();
             }
         }
+
+        public void DeleteLastIncome()
+        {
+            using (var context = new BudgetContext())
+            {
+                Income lastIncome = context.Incomes.OrderBy(i => i.Id).Last();
+                context.Incomes.Remove(lastIncome);
+                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                lastBalance.Amount = lastBalance.Amount - lastIncome.Amount;
+                context.SaveChanges();
+            }
+        }
     }
 }
