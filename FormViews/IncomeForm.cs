@@ -96,8 +96,13 @@ namespace FinTrack.Views
         {
             financeServices.DeleteLastIncome();
             this.DialogResult = DialogResult.OK;
-            balanceAmount= financeServices.GetBalanceAmount();
+            balanceAmount = financeServices.GetBalanceAmount();
             LoadIncome();
+        }
+
+        private void IncomeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
