@@ -35,6 +35,8 @@ partial class FinancialTracker
         button2 = new Button();
         label2 = new Label();
         label3 = new Label();
+        pictureBox1 = new PictureBox();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // label1
@@ -99,11 +101,22 @@ partial class FinancialTracker
         label3.TabIndex = 5;
         label3.Text = "See your:";
         // 
+        // pictureBox1
+        // 
+        pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+        pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+        pictureBox1.Location = new Point(12, 12);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(287, 68);
+        pictureBox1.TabIndex = 6;
+        pictureBox1.TabStop = false;
+        // 
         // FinancialTracker
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(pictureBox1);
         Controls.Add(label3);
         Controls.Add(label2);
         Controls.Add(button2);
@@ -114,6 +127,7 @@ partial class FinancialTracker
         Name = "FinancialTracker";
         Text = "Financial Tracker";
         Load += FinancialTracker_Load;
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -126,4 +140,5 @@ partial class FinancialTracker
     private Button button2;
     private Label label2;
     private Label label3;
+    private PictureBox pictureBox1;
 }
