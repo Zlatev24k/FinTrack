@@ -31,8 +31,10 @@ namespace FinTrack.Views
             listBox4.Items.Clear();
             foreach (var item in expenseList)
             {
+                string expenseWithDate = $"{item.Amount} - {item.TypeOfExpense.Name} - {((DateTime)item.Date).ToString("dd-MMMM-yyyy")}";
+                listBox2.Items.Add(expenseWithDate);
+                
                 string expense = $"{item.Amount} - {item.TypeOfExpense.Name}";
-                listBox2.Items.Add(expense);
                 listBox3.Items.Add(expense);
                 listBox4.Items.Add(expense);
             }

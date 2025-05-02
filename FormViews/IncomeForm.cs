@@ -31,9 +31,10 @@ namespace FinTrack.Views
             listBox5.Items.Clear();
             foreach (var item in incomeList)
             {
-                string income = $"{item.Amount} - {item.TypeOfIncome.Name}";
+                string incomeWithDate= $"{item.Amount} - {item.TypeOfIncome.Name}  - {((DateTime)item.Date).ToString("dd-MMMM-yyyy")}";
+                listBox2.Items.Add(incomeWithDate);
 
-                listBox2.Items.Add(income);
+                string income = $"{item.Amount} - {item.TypeOfIncome.Name}";
                 listBox3.Items.Add(income);
                 listBox5.Items.Add(income);
             }
