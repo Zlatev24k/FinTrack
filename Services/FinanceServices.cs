@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using FinTrack.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -61,6 +62,22 @@ namespace FinTrack.Services
             {
                 Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
                 return lastBalance.Amount;
+            }
+        }
+        public void AddNewIncome(string incomeType, decimal incomeAmount, decimal balanceAmountForIncome)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfIncome selectedTypeOfIncome = context.TypeOfIncomes.FirstOrDefault(ti => ti.Name == incomeType);
+                //decimal amount = incomeAmount;
+                Income newIncome = new Income() { Amount = incomeAmount, TypeOfIncomeId = selectedTypeOfIncome.Id };
+                context.Incomes.Add(newIncome);
+                context.SaveChanges();
+
+
+                Balance balance = new Balance() { Amount = balanceAmountForIncome, IncomeId = newIncome.Id };
+                context.Balances.Add(balance);
+                context.SaveChanges();
             }
         }
         public void UpdateLastIncome(decimal newIncomeAmount)

@@ -210,7 +210,6 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Update Expense";
             tabPage3.UseVisualStyleBackColor = true;
-            tabPage3.Click += tabPage3_Click;
             // 
             // button3
             // 

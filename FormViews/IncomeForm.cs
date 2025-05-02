@@ -65,8 +65,17 @@ namespace FinTrack.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string incomeType = listBox1.SelectedItem.ToString();
+            decimal amount = decimal.Parse(textBox2.Text);
+            balanceAmount = financeServices.GetBalanceAmount() + amount;
+            financeServices.AddNewIncome(incomeType, amount, balanceAmount);
+            this.DialogResult = DialogResult.OK;
+            LoadIncome();
+
+            /*
             using (var context = new BudgetContext())
             {
+                
                 TypeOfIncome selectedTypeOfIncome = context.TypeOfIncomes.FirstOrDefault(ti => ti.Name == listBox1.SelectedItem.ToString());
                 decimal amount = decimal.Parse(textBox2.Text);
                 Income newIncome = new Income() { Amount = amount, TypeOfIncomeId = selectedTypeOfIncome.Id };
@@ -78,10 +87,10 @@ namespace FinTrack.Views
                 Balance balance = new Balance() { Amount = balanceAmount, IncomeId = newIncome.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
-                //balanceAmount = financeServices.GetBalanceAmount();
                 this.DialogResult = DialogResult.OK;
                 LoadIncome();
             }
+            */
         }
 
         private void button4_Click(object sender, EventArgs e)

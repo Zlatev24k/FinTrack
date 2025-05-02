@@ -50,11 +50,6 @@ namespace FinTrack.Views
             }
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string newExpenseType = textBox1.Text;
@@ -82,7 +77,6 @@ namespace FinTrack.Views
                 Balance balance = new Balance() { Amount = balanceAmount, ExpenseId = newExpense.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
-                //balanceAmount = financeServices.GetBalanceAmount();
                 this.DialogResult = DialogResult.OK;
                 LoadExpense();
             }
