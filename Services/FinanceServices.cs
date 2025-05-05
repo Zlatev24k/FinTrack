@@ -69,13 +69,27 @@ namespace FinTrack.Services
             using (var context = new BudgetContext())
             {
                 TypeOfIncome selectedTypeOfIncome = context.TypeOfIncomes.FirstOrDefault(ti => ti.Name == incomeType);
-                //decimal amount = incomeAmount;
                 Income newIncome = new Income() { Amount = incomeAmount, TypeOfIncomeId = selectedTypeOfIncome.Id };
                 context.Incomes.Add(newIncome);
                 context.SaveChanges();
 
 
                 Balance balance = new Balance() { Amount = balanceAmountForIncome, IncomeId = newIncome.Id };
+                context.Balances.Add(balance);
+                context.SaveChanges();
+            }
+        }
+        public void AddNewExpense(string expenseType, decimal expenseAmount, decimal balanceAmountForExpense)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfExpense selectedTypeOfExpense = context.TypeOfExpenses.FirstOrDefault(te => te.Name == expenseType);
+                Expense newExpense = new Expense() { Amount = expenseAmount, TypeOfExpenseId = selectedTypeOfExpense.Id };
+                context.Expenses.Add(newExpense);
+                context.SaveChanges();
+
+
+                Balance balance = new Balance() { Amount = balanceAmountForExpense, ExpenseId = newExpense.Id };
                 context.Balances.Add(balance);
                 context.SaveChanges();
             }

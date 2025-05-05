@@ -64,22 +64,12 @@ namespace FinTrack.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (var context = new BudgetContext())
-            {
-                TypeOfExpense selectedTypeOfExpense = context.TypeOfExpenses.FirstOrDefault(te => te.Name == listBox1.SelectedItem.ToString());
-                decimal amount = decimal.Parse(textBox2.Text);
-                Expense newExpense = new Expense() { Amount = amount, TypeOfExpenseId = selectedTypeOfExpense.Id };
-                context.Expenses.Add(newExpense);
-                context.SaveChanges();
-
-
-                balanceAmount = financeServices.GetBalanceAmount() - newExpense.Amount;
-                Balance balance = new Balance() { Amount = balanceAmount, ExpenseId = newExpense.Id };
-                context.Balances.Add(balance);
-                context.SaveChanges();
-                this.DialogResult = DialogResult.OK;
-                LoadExpense();
-            }
+            string expenseType = listBox1.SelectedItem.ToString();
+            decimal amount = decimal.Parse(textBox2.Text);
+            balanceAmount = financeServices.GetBalanceAmount() - amount;
+            financeServices.AddNewExpense(expenseType, amount, balanceAmount);
+            this.DialogResult = DialogResult.OK;
+            LoadExpense();
         }
 
         private void button3_Click(object sender, EventArgs e)

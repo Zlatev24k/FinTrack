@@ -71,26 +71,6 @@ namespace FinTrack.Views
             financeServices.AddNewIncome(incomeType, amount, balanceAmount);
             this.DialogResult = DialogResult.OK;
             LoadIncome();
-
-            /*
-            using (var context = new BudgetContext())
-            {
-                
-                TypeOfIncome selectedTypeOfIncome = context.TypeOfIncomes.FirstOrDefault(ti => ti.Name == listBox1.SelectedItem.ToString());
-                decimal amount = decimal.Parse(textBox2.Text);
-                Income newIncome = new Income() { Amount = amount, TypeOfIncomeId = selectedTypeOfIncome.Id };
-                context.Incomes.Add(newIncome);
-                context.SaveChanges();
-
-
-                balanceAmount = financeServices.GetBalanceAmount() + newIncome.Amount;
-                Balance balance = new Balance() { Amount = balanceAmount, IncomeId = newIncome.Id };
-                context.Balances.Add(balance);
-                context.SaveChanges();
-                this.DialogResult = DialogResult.OK;
-                LoadIncome();
-            }
-            */
         }
 
         private void button4_Click(object sender, EventArgs e)
