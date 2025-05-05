@@ -129,24 +129,28 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.Red;
             button2.Font = new Font("Segoe UI", 12F);
+            button2.ForeColor = SystemColors.ButtonFace;
             button2.Location = new Point(574, 341);
             button2.Name = "button2";
             button2.Size = new Size(210, 68);
             button2.TabIndex = 3;
             button2.Text = "Add Income to Balance";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.Red;
             button1.Font = new Font("Segoe UI", 12F);
+            button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(574, 65);
             button1.Name = "button1";
             button1.Size = new Size(212, 68);
             button1.TabIndex = 2;
             button1.Text = "Add Type of Income";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1
@@ -161,6 +165,7 @@
             // 
             // listBox1
             // 
+            listBox1.BackColor = Color.White;
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(8, 65);
             listBox1.Name = "listBox1";
@@ -191,6 +196,7 @@
             // 
             // listBox2
             // 
+            listBox2.BackColor = Color.LightCoral;
             listBox2.FormattingEnabled = true;
             listBox2.Location = new Point(226, 87);
             listBox2.Name = "listBox2";
@@ -215,13 +221,15 @@
             // 
             // button4
             // 
+            button4.BackColor = Color.Red;
             button4.Font = new Font("Segoe UI", 12F);
+            button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Location = new Point(383, 187);
             button4.Name = "button4";
             button4.Size = new Size(197, 67);
             button4.TabIndex = 5;
             button4.Text = "Update Amount";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button3
@@ -302,13 +310,15 @@
             // 
             // button6
             // 
+            button6.BackColor = Color.Red;
             button6.Font = new Font("Segoe UI", 12F);
+            button6.ForeColor = SystemColors.ButtonHighlight;
             button6.Location = new Point(284, 66);
             button6.Name = "button6";
             button6.Size = new Size(197, 60);
             button6.TabIndex = 6;
-            button6.Text = "Delete Income";
-            button6.UseVisualStyleBackColor = true;
+            button6.Text = "Delete Last Income";
+            button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
             // IncomeForm
@@ -319,6 +329,7 @@
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "IncomeForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Income";
             Load += IncomeForm_Load;
             tabControl1.ResumeLayout(false);

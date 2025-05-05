@@ -36,6 +36,7 @@ partial class FinancialTracker
         label2 = new Label();
         label3 = new Label();
         pictureBox1 = new PictureBox();
+        sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
@@ -52,33 +53,38 @@ partial class FinancialTracker
         // textBox1
         // 
         textBox1.Enabled = false;
-        textBox1.Font = new Font("Segoe UI", 11F);
+        textBox1.Font = new Font("Segoe UI", 15F);
         textBox1.Location = new Point(294, 185);
         textBox1.Name = "textBox1";
-        textBox1.Size = new Size(186, 32);
+        textBox1.Size = new Size(186, 41);
         textBox1.TabIndex = 1;
         textBox1.TextAlign = HorizontalAlignment.Center;
         // 
         // button1
         // 
+        button1.BackColor = Color.Red;
+        button1.Cursor = Cursors.Hand;
         button1.Font = new Font("Segoe UI", 14F);
+        button1.ForeColor = SystemColors.ButtonHighlight;
         button1.Location = new Point(12, 338);
         button1.Name = "button1";
         button1.Size = new Size(194, 71);
         button1.TabIndex = 2;
         button1.Text = "Income";
-        button1.UseVisualStyleBackColor = true;
+        button1.UseVisualStyleBackColor = false;
         button1.Click += button1_Click;
         // 
         // button2
         // 
+        button2.BackColor = Color.Red;
         button2.Font = new Font("Segoe UI", 14F);
+        button2.ForeColor = SystemColors.ButtonHighlight;
         button2.Location = new Point(594, 338);
         button2.Name = "button2";
         button2.Size = new Size(194, 71);
         button2.TabIndex = 3;
         button2.Text = "Expenses";
-        button2.UseVisualStyleBackColor = true;
+        button2.UseVisualStyleBackColor = false;
         button2.Click += button2_Click;
         // 
         // label2
@@ -111,6 +117,11 @@ partial class FinancialTracker
         pictureBox1.TabIndex = 6;
         pictureBox1.TabStop = false;
         // 
+        // sqlCommand1
+        // 
+        sqlCommand1.CommandTimeout = 30;
+        sqlCommand1.EnableOptimizedParameterBinding = false;
+        // 
         // FinancialTracker
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -123,8 +134,10 @@ partial class FinancialTracker
         Controls.Add(button1);
         Controls.Add(textBox1);
         Controls.Add(label1);
+        Cursor = Cursors.Hand;
         Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "FinancialTracker";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Financial Tracker";
         Load += FinancialTracker_Load;
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -141,4 +154,5 @@ partial class FinancialTracker
     private Label label2;
     private Label label3;
     private PictureBox pictureBox1;
+    private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
 }

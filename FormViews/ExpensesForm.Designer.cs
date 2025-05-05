@@ -128,24 +128,28 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.Red;
             button2.Font = new Font("Segoe UI", 12F);
+            button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Location = new Point(558, 318);
             button2.Name = "button2";
             button2.Size = new Size(226, 80);
             button2.TabIndex = 3;
             button2.Text = "Add Expense to Balance";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.Red;
             button1.Font = new Font("Segoe UI", 12F);
+            button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(558, 54);
             button1.Name = "button1";
             button1.Size = new Size(226, 77);
             button1.TabIndex = 2;
             button1.Text = "Add Type of Expense";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1
@@ -213,13 +217,15 @@
             // 
             // button3
             // 
+            button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI", 12F);
+            button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Location = new Point(368, 147);
             button3.Name = "button3";
             button3.Size = new Size(197, 60);
             button3.TabIndex = 4;
             button3.Text = "Update Amount";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // label6
@@ -274,13 +280,15 @@
             // 
             // button4
             // 
+            button4.BackColor = Color.Red;
             button4.Font = new Font("Segoe UI", 12F);
+            button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Location = new Point(264, 85);
             button4.Name = "button4";
             button4.Size = new Size(197, 60);
             button4.TabIndex = 5;
             button4.Text = "Delete Expense";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // listBox4
@@ -309,6 +317,7 @@
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ExpensesForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Expenses";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
