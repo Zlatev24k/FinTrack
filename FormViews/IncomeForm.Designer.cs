@@ -196,7 +196,7 @@
             // 
             // listBox2
             // 
-            listBox2.BackColor = Color.LightCoral;
+            listBox2.BackColor = Color.White;
             listBox2.FormattingEnabled = true;
             listBox2.Location = new Point(226, 87);
             listBox2.Name = "listBox2";
@@ -331,7 +331,6 @@
             Name = "IncomeForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Income";
-            Load += IncomeForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();

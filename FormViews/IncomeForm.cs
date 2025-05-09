@@ -89,10 +89,5 @@ namespace FinTrack.Views
             balanceAmount = financeServices.GetBalanceAmount();
             LoadIncome();
         }
-
-        private void IncomeForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
