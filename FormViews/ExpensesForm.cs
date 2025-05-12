@@ -54,12 +54,9 @@ namespace FinTrack.Views
         {
             string newExpenseType = textBox1.Text;
             listBox1.Items.Add(newExpenseType);
-            using (var context = new BudgetContext())
-            {
-                TypeOfExpense newTypeOfExpense = new TypeOfExpense() { Name = newExpenseType };
-                context.TypeOfExpenses.Add(newTypeOfExpense);
-                context.SaveChanges();
-            }
+            financeServices.AddNewExpenseCategory(newExpenseType);
+            textBox1.Clear();
+            MessageBox.Show("The category was added!");
         }
 
         private void button2_Click(object sender, EventArgs e)

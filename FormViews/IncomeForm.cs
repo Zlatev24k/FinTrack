@@ -54,13 +54,9 @@ namespace FinTrack.Views
         {
             string newIncomeType = textBox1.Text;
             listBox1.Items.Add(newIncomeType);
-            using (var context = new BudgetContext())
-            {
-                TypeOfIncome newTypeOfIncome = new TypeOfIncome() { Name = newIncomeType };
-                context.TypeOfIncomes.Add(newTypeOfIncome);
-                context.SaveChanges();
-            }
-
+            financeServices.AddNewIncomeCategory(newIncomeType);
+            textBox1.Clear();
+            MessageBox.Show("The category was added!");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,6 +65,7 @@ namespace FinTrack.Views
             decimal amount = decimal.Parse(textBox2.Text);
             balanceAmount = financeServices.GetBalanceAmount() + amount;
             financeServices.AddNewIncome(incomeType, amount, balanceAmount);
+            MessageBox.Show("The income was added!");
             this.DialogResult = DialogResult.OK;
             LoadIncome();
         }
@@ -76,6 +73,7 @@ namespace FinTrack.Views
         private void button4_Click(object sender, EventArgs e)
         {
             decimal newAmount = decimal.Parse(textBox3.Text);
+            MessageBox.Show("The income was updated!");
             financeServices.UpdateLastIncome(newAmount);
             this.DialogResult = DialogResult.OK;
             balanceAmount = financeServices.GetBalanceAmount();
@@ -85,6 +83,7 @@ namespace FinTrack.Views
         private void button6_Click(object sender, EventArgs e)
         {
             financeServices.DeleteLastIncome();
+            MessageBox.Show("The income was deleted!");
             this.DialogResult = DialogResult.OK;
             balanceAmount = financeServices.GetBalanceAmount();
             LoadIncome();

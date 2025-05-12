@@ -36,6 +36,26 @@ namespace FinTrack.Services
             }
         }
 
+        public void AddNewIncomeCategory(string newIncomeCategory)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfIncome newTypeOfIncome = new TypeOfIncome() { Name = newIncomeCategory };
+                context.TypeOfIncomes.Add(newTypeOfIncome);
+                context.SaveChanges();
+            }
+        }
+
+        public void AddNewExpenseCategory(string newExpenseCategory)
+        {
+            using (var context = new BudgetContext())
+            {
+                TypeOfExpense newTypeOfExpense = new TypeOfExpense() { Name = newExpenseCategory };
+                context.TypeOfExpenses.Add(newTypeOfExpense);
+                context.SaveChanges();
+            }
+        }
+
         public List<TypeOfExpense> LoadTypeOfExpensesFromDB()
         {
             using (var context = new BudgetContext())
