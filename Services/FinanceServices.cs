@@ -137,6 +137,7 @@ namespace FinTrack.Services
                 Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
                 lastBalance.Amount = lastBalance.Amount + lastExpense.Amount;
                 context.SaveChanges();
+                //.Where(b => b.ExpenseId != null)
             }
         }
     }
