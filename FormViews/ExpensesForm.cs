@@ -52,22 +52,38 @@ namespace FinTrack.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string newExpenseType = textBox1.Text;
-            listBox1.Items.Add(newExpenseType);
-            financeServices.AddNewExpenseCategory(newExpenseType);
-            textBox1.Clear();
-            MessageBox.Show("The category was added!");
+            if (textBox1.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете категория!");
+                return;
+            }
+            else
+            {
+                string newExpenseType = textBox1.Text;
+                listBox1.Items.Add(newExpenseType);
+                financeServices.AddNewExpenseCategory(newExpenseType);
+                textBox1.Clear();
+                MessageBox.Show("The category was added!");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string expenseType = listBox1.SelectedItem.ToString();
-            decimal amount = decimal.Parse(textBox2.Text);
-            balanceAmount = financeServices.GetBalanceAmount() - amount;
-            financeServices.AddNewExpense(expenseType, amount, balanceAmount);
-            MessageBox.Show("The expense was added!");
-            this.DialogResult = DialogResult.OK;
-            LoadExpense();
+            if (textBox2.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете сума!");
+                return;
+            }
+            else
+            {
+                string expenseType = listBox1.SelectedItem.ToString();
+                decimal amount = decimal.Parse(textBox2.Text);
+                balanceAmount = financeServices.GetBalanceAmount() - amount;
+                financeServices.AddNewExpense(expenseType, amount, balanceAmount);
+                MessageBox.Show("The expense was added!");
+                this.DialogResult = DialogResult.OK;
+                LoadExpense();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

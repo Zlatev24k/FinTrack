@@ -52,22 +52,38 @@ namespace FinTrack.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string newIncomeType = textBox1.Text;
-            listBox1.Items.Add(newIncomeType);
-            financeServices.AddNewIncomeCategory(newIncomeType);
-            textBox1.Clear();
-            MessageBox.Show("The category was added!");
+            if (textBox1.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете категория!");
+                return;
+            }
+            else
+            {
+                string newIncomeType = textBox1.Text;
+                listBox1.Items.Add(newIncomeType);
+                financeServices.AddNewIncomeCategory(newIncomeType);
+                textBox1.Clear();
+                MessageBox.Show("The category was added!");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string incomeType = listBox1.SelectedItem.ToString();
-            decimal amount = decimal.Parse(textBox2.Text);
-            balanceAmount = financeServices.GetBalanceAmount() + amount;
-            financeServices.AddNewIncome(incomeType, amount, balanceAmount);
-            MessageBox.Show("The income was added!");
-            this.DialogResult = DialogResult.OK;
-            LoadIncome();
+            if (textBox2.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете сума!");
+                return;
+            }
+            else
+            {
+                string incomeType = listBox1.SelectedItem.ToString();
+                decimal amount = decimal.Parse(textBox2.Text);
+                balanceAmount = financeServices.GetBalanceAmount() + amount;
+                financeServices.AddNewIncome(incomeType, amount, balanceAmount);
+                MessageBox.Show("The income was added!");
+                this.DialogResult = DialogResult.OK;
+                LoadIncome();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
