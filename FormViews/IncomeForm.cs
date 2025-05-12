@@ -74,6 +74,12 @@ namespace FinTrack.Views
                 MessageBox.Show("Напишете сума!");
                 return;
             }
+            /*
+            if((decimal(textBox2.Text) <= 0)
+            {
+
+            }
+            */
             else
             {
                 string incomeType = listBox1.SelectedItem.ToString();
@@ -88,12 +94,20 @@ namespace FinTrack.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            decimal newAmount = decimal.Parse(textBox3.Text);
-            financeServices.UpdateLastIncome(newAmount);
-            MessageBox.Show("The income was updated!");
-            this.DialogResult = DialogResult.OK;
-            balanceAmount = financeServices.GetBalanceAmount();
-            LoadIncome();
+            if (textBox3.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете нова сума!");
+                return;
+            }
+            else
+            {
+                decimal newAmount = decimal.Parse(textBox3.Text);
+                financeServices.UpdateLastIncome(newAmount);
+                MessageBox.Show("The income was updated!");
+                this.DialogResult = DialogResult.OK;
+                balanceAmount = financeServices.GetBalanceAmount();
+                LoadIncome();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)

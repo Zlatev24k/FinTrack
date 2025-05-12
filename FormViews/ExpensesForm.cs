@@ -88,12 +88,20 @@ namespace FinTrack.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            decimal newAmount = decimal.Parse(textBox3.Text);
-            financeServices.UpdateLastExpense(newAmount);
-            MessageBox.Show("The expense was updated!");
-            this.DialogResult = DialogResult.OK;
-            balanceAmount = financeServices.GetBalanceAmount();
-            LoadExpense();
+            if (textBox3.Text == string.Empty)
+            {
+                MessageBox.Show("Напишете нова сума!");
+                return;
+            }
+            else
+            {
+                decimal newAmount = decimal.Parse(textBox3.Text);
+                financeServices.UpdateLastExpense(newAmount);
+                MessageBox.Show("The expense was updated!");
+                this.DialogResult = DialogResult.OK;
+                balanceAmount = financeServices.GetBalanceAmount();
+                LoadExpense();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
