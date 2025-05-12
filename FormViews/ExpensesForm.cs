@@ -65,6 +65,7 @@ namespace FinTrack.Views
             decimal amount = decimal.Parse(textBox2.Text);
             balanceAmount = financeServices.GetBalanceAmount() - amount;
             financeServices.AddNewExpense(expenseType, amount, balanceAmount);
+            MessageBox.Show("The expense was added!");
             this.DialogResult = DialogResult.OK;
             LoadExpense();
         }
@@ -73,6 +74,7 @@ namespace FinTrack.Views
         {
             decimal newAmount = decimal.Parse(textBox3.Text);
             financeServices.UpdateLastExpense(newAmount);
+            MessageBox.Show("The expense was updated!");
             this.DialogResult = DialogResult.OK;
             balanceAmount = financeServices.GetBalanceAmount();
             LoadExpense();
@@ -81,6 +83,7 @@ namespace FinTrack.Views
         private void button4_Click(object sender, EventArgs e)
         {
             financeServices.DeleteLastExpense();
+            MessageBox.Show("The expense was deleted!");
             this.DialogResult = DialogResult.OK;
             balanceAmount = financeServices.GetBalanceAmount();
             LoadExpense();

@@ -73,8 +73,8 @@ namespace FinTrack.Views
         private void button4_Click(object sender, EventArgs e)
         {
             decimal newAmount = decimal.Parse(textBox3.Text);
-            MessageBox.Show("The income was updated!");
             financeServices.UpdateLastIncome(newAmount);
+            MessageBox.Show("The income was updated!");
             this.DialogResult = DialogResult.OK;
             balanceAmount = financeServices.GetBalanceAmount();
             LoadIncome();
