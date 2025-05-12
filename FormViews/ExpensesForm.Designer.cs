@@ -222,9 +222,9 @@
             button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Location = new Point(368, 147);
             button3.Name = "button3";
-            button3.Size = new Size(197, 60);
+            button3.Size = new Size(204, 60);
             button3.TabIndex = 4;
-            button3.Text = "Update Amount";
+            button3.Text = "Update Last Expense";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
@@ -244,7 +244,7 @@
             textBox3.Location = new Point(368, 77);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(197, 34);
+            textBox3.Size = new Size(204, 34);
             textBox3.TabIndex = 2;
             // 
             // label5
@@ -287,7 +287,7 @@
             button4.Name = "button4";
             button4.Size = new Size(197, 60);
             button4.TabIndex = 5;
-            button4.Text = "Delete Expense";
+            button4.Text = "Delete Last Expense";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 

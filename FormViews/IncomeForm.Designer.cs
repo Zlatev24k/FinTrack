@@ -228,7 +228,7 @@
             button4.Name = "button4";
             button4.Size = new Size(197, 67);
             button4.TabIndex = 5;
-            button4.Text = "Update Amount";
+            button4.Text = "Update Last Income";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
