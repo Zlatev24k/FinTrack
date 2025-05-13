@@ -74,6 +74,16 @@ namespace FinTrack.Views
                 MessageBox.Show("Напишете сума!");
                 return;
             }
+            if (decimal.Parse(textBox2.Text) <= 0)
+            {
+                MessageBox.Show("Сумата трябва да е положителна!");
+                return;
+            }
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Изберете категория!");
+                return;
+            }
             else
             {
                 string expenseType = listBox1.SelectedItem.ToString();
@@ -91,6 +101,11 @@ namespace FinTrack.Views
             if (textBox3.Text == string.Empty)
             {
                 MessageBox.Show("Напишете нова сума!");
+                return;
+            }
+            if (decimal.Parse(textBox3.Text) <= 0)
+            {
+                MessageBox.Show("Сумата трябва да е положителна!");
                 return;
             }
             else
