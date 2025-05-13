@@ -139,26 +139,40 @@ namespace FinTrack.Services
 
         public void DeleteLastIncome()
         {
-            using (var context = new BudgetContext())
+            try
             {
-                Income lastIncome = context.Incomes.OrderBy(i => i.Id).Last();
-                context.Incomes.Remove(lastIncome);
-                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
-                lastBalance.Amount = lastBalance.Amount - lastIncome.Amount;
-                context.SaveChanges();
+                using (var context = new BudgetContext())
+                {
+                    Income lastIncome = context.Incomes.OrderBy(i => i.Id).Last();
+                    context.Incomes.Remove(lastIncome);
+                    Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                    lastBalance.Amount = lastBalance.Amount - lastIncome.Amount;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Последният приход е вече изтрит!");
             }
         }
         public void DeleteLastExpense()
         {
-            using (var context = new BudgetContext())
+            try
             {
-                Expense lastExpense = context.Expenses.OrderBy(e => e.Id).Last();
-                context.Expenses.Remove(lastExpense);
-                Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
-                lastBalance.Amount = lastBalance.Amount + lastExpense.Amount;
-                context.SaveChanges();
-                //.Where(b => b.ExpenseId != null)
+                using (var context = new BudgetContext())
+                {
+                    Expense lastExpense = context.Expenses.OrderBy(e => e.Id).Last();
+                    context.Expenses.Remove(lastExpense);
+                    Balance lastBalance = context.Balances.OrderBy(b => b.Id).Last();
+                    lastBalance.Amount = lastBalance.Amount + lastExpense.Amount;
+                    context.SaveChanges();
+                }
             }
+            catch (Exception)
+            {
+                throw new Exception("Последният разход е вече изтрит!");
+            }
+            
         }
     }
 }

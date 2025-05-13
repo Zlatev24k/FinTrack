@@ -121,11 +121,19 @@ namespace FinTrack.Views
 
         private void button6_Click(object sender, EventArgs e)
         {
-            financeServices.DeleteLastIncome();
-            MessageBox.Show("The income was deleted!");
-            this.DialogResult = DialogResult.OK;
-            balanceAmount = financeServices.GetBalanceAmount();
-            LoadIncome();
+            try
+            {
+                financeServices.DeleteLastIncome();
+                MessageBox.Show("The income was deleted!");
+                this.DialogResult = DialogResult.OK;
+                balanceAmount = financeServices.GetBalanceAmount();
+                LoadIncome();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -33,7 +33,7 @@ namespace FinTrack.Views
             {
                 string expenseWithDate = $"{item.Amount} - {item.TypeOfExpense.Name} - {((DateTime)item.Date).ToString("dd-MMMM-yyyy")}";
                 listBox2.Items.Add(expenseWithDate);
-                
+
                 string expense = $"{item.Amount} - {item.TypeOfExpense.Name}";
                 listBox3.Items.Add(expense);
                 listBox4.Items.Add(expense);
@@ -121,11 +121,18 @@ namespace FinTrack.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            financeServices.DeleteLastExpense();
-            MessageBox.Show("The expense was deleted!");
-            this.DialogResult = DialogResult.OK;
-            balanceAmount = financeServices.GetBalanceAmount();
-            LoadExpense();
+            try
+            {
+                financeServices.DeleteLastExpense();
+                MessageBox.Show("The expense was deleted!");
+                this.DialogResult = DialogResult.OK;
+                balanceAmount = financeServices.GetBalanceAmount();
+                LoadExpense();
+            }
+            catch (Exception е)
+            {
+                MessageBox.Show(е.Message);
+            }
         }
     }
 }
