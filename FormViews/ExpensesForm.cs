@@ -57,6 +57,11 @@ namespace FinTrack.Views
                 MessageBox.Show("Напишете категория!");
                 return;
             }
+            if (textBox1.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("Използвайте само букви в имената на категориите!");
+                return;
+            }
             else
             {
                 string newExpenseType = textBox1.Text;
@@ -72,6 +77,11 @@ namespace FinTrack.Views
             if (textBox2.Text == string.Empty)
             {
                 MessageBox.Show("Напишете сума!");
+                return;
+            }
+            if (!decimal.TryParse(textBox2.Text, out decimal value))
+            {
+                MessageBox.Show("Въведете число!");
                 return;
             }
             if (decimal.Parse(textBox2.Text) <= 0)
@@ -101,6 +111,11 @@ namespace FinTrack.Views
             if (textBox3.Text == string.Empty)
             {
                 MessageBox.Show("Напишете нова сума!");
+                return;
+            }
+            if (!decimal.TryParse(textBox3.Text, out decimal value))
+            {
+                MessageBox.Show("Въведете число!");
                 return;
             }
             if (decimal.Parse(textBox3.Text) <= 0)

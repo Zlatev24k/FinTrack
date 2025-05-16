@@ -11,7 +11,6 @@ namespace FinTrack.Services
 {
     public class FinanceServices
     {
-
         public List<Income> LoadIncomesFromDB()
         {
             using (var context = new BudgetContext())
